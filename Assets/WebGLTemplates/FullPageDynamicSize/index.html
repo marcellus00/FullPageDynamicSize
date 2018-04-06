@@ -23,7 +23,7 @@
     </style>
     <script src="Build/UnityLoader.js"></script>
     <script>
-        const gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build_Web.json");
+        const gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
         var canvas;
 
         function resizeCanvas() {
