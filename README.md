@@ -1,0 +1,2 @@
+# FullPageDynamicSize
+Unity WebGL template
