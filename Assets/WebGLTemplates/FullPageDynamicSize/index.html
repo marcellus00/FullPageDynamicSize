@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en-us">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <title>Unity WebGL Player</title>
-      <style>
-         * { margin:0; padding:0; } 
-         html, body { width:100%; height:100%; }
-         canvas { display:block; }
-      </style>
-      <script src="Build/UnityLoader.js"></script>
-      <script>
-         const gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build_Web.json");	  
-      </script>
-   </head>
-   <body>
-      <div id="gameContainer" style="width: 100%; height: 100%; margin: 0"></div>
-   </body>
-   <script>
-      (	function()
-      {
-      	var canvas;
-      	function resizeCanvas()
-      	{
-      		if ( !canvas ) return;			
-      		canvas.width = window.innerWidth;
-      		canvas.height = window.innerHeight;
-      	}
-      
-      	var check = setInterval(function(){
-      		canvas = document.getElementById('#canvas');
-      		if(canvas)
-      		{
-      			clearInterval(check);
-      			resizeCanvas();
-      		}
-      	}, 100);
-      	
-      	window.addEventListener('resize', resizeCanvas, false);
-      })();
-   </script>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        canvas {
+            display: block;
+        }
+    </style>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+        const gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build_Web.json");
+
+        (function() {
+            var canvas;
+
+            function resizeCanvas() {
+                if (!canvas) return;
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            var check = setInterval(function() {
+                canvas = document.getElementById('#canvas');
+                if (canvas) {
+                    clearInterval(check);
+                    resizeCanvas();
+                }
+            }, 100);
+
+            window.addEventListener('resize', resizeCanvas, false);
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="gameContainer" style="width: 100%; height: 100%; margin: 0"></div>
+</body>
+
 </html>
