@@ -24,26 +24,23 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
         const gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build_Web.json");
+        var canvas;
 
-        (function() {
-            var canvas;
+        function resizeCanvas() {
+            if (!canvas) return;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
-            function resizeCanvas() {
-                if (!canvas) return;
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+        var check = setInterval(function() {
+            canvas = document.getElementById('#canvas');
+            if (canvas) {
+                clearInterval(check);
+                resizeCanvas();
             }
+        }, 100);
 
-            var check = setInterval(function() {
-                canvas = document.getElementById('#canvas');
-                if (canvas) {
-                    clearInterval(check);
-                    resizeCanvas();
-                }
-            }, 100);
-
-            window.addEventListener('resize', resizeCanvas, false);
-        })();
+        window.addEventListener('resize', resizeCanvas, false);
     </script>
 </head>
 
