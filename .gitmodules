@@ -1,0 +1,3 @@
+[submodule "WebGLTemplates/FullPageDynamicSize/gyro.js"]
+	path = WebGLTemplates/FullPageDynamicSize/gyro.js
+	url = https://github.com/tomgco/gyro.js
